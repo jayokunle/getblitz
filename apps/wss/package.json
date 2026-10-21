@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm with-env tsx watch src/index.ts",
-    "build": "tsc",
+    "build": "tsdown",
     "start": "tsx src/index.ts",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
@@ -26,6 +26,7 @@
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
+    "tsdown": "^0.22.0",
     "tsx": "^4.19.4",
     "typescript": "catalog:"
   },

@@ -655,6 +655,9 @@ importers:
       prettier:
         specifier: 'catalog:'
         version: 3.7.4
+      tsdown:
+        specifier: ^0.22.0
+        version: 0.22.0(tsx@4.21.0)(typescript@6.0.3)(unrun@0.2.27(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))
       tsx:
         specifier: ^4.19.4
         version: 4.21.0
