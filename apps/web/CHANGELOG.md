@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.15](https://github.com/jayokunle/getblitz/compare/web-v0.0.14...web-v0.0.15) (2026-10-21)
+
+
+### Bug Fixes
+
+* **docker:** copy all workspace deps and fix runtime layout for wss and web ([#63](https://github.com/jayokunle/getblitz/issues/63)) ([39a9dca](https://github.com/jayokunle/getblitz/commit/39a9dca3d56ef5e382757842afeea350070c47bf))
+* **security:** upgrade Node.js to 24.22.1 for October 2026 security release ([#61](https://github.com/jayokunle/getblitz/issues/61)) ([6b77550](https://github.com/jayokunle/getblitz/commit/6b7755040642a285342b35282a87226673a6bd08))
+
 ## [0.0.14](https://github.com/jayokunle/getblitz/compare/web-v0.0.13...web-v0.0.14) (2026-09-27)
 
 
