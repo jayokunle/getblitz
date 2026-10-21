@@ -1,4 +1,4 @@
-FROM node:22-alpine AS base
+FROM node:24.22.1-alpine AS base
 
 # Install pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
@@ -52,7 +52,7 @@ RUN CI=true \
     pnpm build:standalone
 
 # Production image
-FROM node:22-alpine AS runner
+FROM node:24.22.1-alpine AS runner
 
 WORKDIR /app
 

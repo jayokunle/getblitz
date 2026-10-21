@@ -59,7 +59,7 @@ services:
         value: wss://${RENDER_EXTERNAL_HOSTNAME}
         
       - key: NODE_VERSION
-        value: 22.12.0
+        value: 24.22.1
   - type: keyvalue
     name: getblitz-valkey
     ipAllowList: []
