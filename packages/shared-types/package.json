@@ -58,7 +58,7 @@
     "eslint": "^9.38.0",
     "prettier": "^3.6.2",
     "typescript": "^6.0.0",
-    "zod": "^4.1.12"
+    "zod": "^4.6.6"
   },
   "publishConfig": {
     "access": "public",
