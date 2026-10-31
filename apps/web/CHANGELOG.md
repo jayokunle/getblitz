@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.16](https://github.com/jayokunle/getblitz/compare/web-v0.0.15...web-v0.0.16) (2026-10-31)
+
+
+### Bug Fixes
+
+* **deps:** monthly security audit 2026-10-30 ([#64](https://github.com/jayokunle/getblitz/issues/64)) ([a26fa12](https://github.com/jayokunle/getblitz/commit/a26fa12300348af6b772d199965a25f834cb33dc))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @getblitz/shared-types bumped to 0.0.12
+
 ## [0.0.15](https://github.com/jayokunle/getblitz/compare/web-v0.0.14...web-v0.0.15) (2026-10-21)
 
 
