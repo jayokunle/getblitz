@@ -54,5 +54,9 @@ export function initAuth<
   return betterAuth(config);
 }
 
-export type Auth = ReturnType<typeof initAuth>;
+// Declared as an interface (not a type alias) so TypeScript references it by
+// name in emitted declarations instead of expanding the full better-auth type,
+// which otherwise exceeds the compiler's serialization limit (TS7056).
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface Auth extends ReturnType<typeof initAuth> {}
 export type Session = Auth["$Infer"]["Session"];
