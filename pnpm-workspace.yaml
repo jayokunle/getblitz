@@ -4,7 +4,7 @@ packages:
   - tooling/*
 
 catalog:
-  '@better-auth/api-key': 1.6.33
+  '@better-auth/api-key': 1.7.14
   '@eslint/js': ^9.38.0
   '@radix-ui/react-icons': ^1.3.2
   '@scalar/nextjs-api-reference': ^0.10.6
@@ -20,8 +20,8 @@ catalog:
   '@types/node': ^22.18.12
   '@types/qrcode': ^1.5.6
   '@vitejs/plugin-react': 5.1.0
-  auth: 1.6.33
-  better-auth: 1.6.33
+  auth: 1.7.14
+  better-auth: 1.7.14
   decimal.js: ^10.6.0
   eslint: ^9.38.0
   ioredis: 5.9.1
@@ -76,7 +76,7 @@ overrides:
   'ajv@6': ^6.14.0
   'ajv@8': ^8.18.0
   baseline-browser-mapping: ^2.11.0
-  better-call: ^1.4.0
+  better-call: ^1.4.4
   'body-parser@1': ^1.20.9
   'brace-expansion@5': ^5.0.9
   browserslist: ^4.28.7
