@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.10](https://github.com/jayokunle/getblitz/compare/getblitz-client-v0.0.9...getblitz-client-v0.0.10) (2026-10-31)
+
+
+### Bug Fixes
+
+* **deps:** monthly security audit 2026-10-30 ([#64](https://github.com/jayokunle/getblitz/issues/64)) ([a26fa12](https://github.com/jayokunle/getblitz/commit/a26fa12300348af6b772d199965a25f834cb33dc))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @getblitz/shared-types bumped from ^0.0.11 to ^0.0.12
+
 ## [0.0.9](https://github.com/jayokunle/getblitz/compare/getblitz-client-v0.0.8...getblitz-client-v0.0.9) (2026-09-27)
 
 
