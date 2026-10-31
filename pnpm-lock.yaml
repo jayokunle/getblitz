@@ -907,7 +907,7 @@ importers:
   packages/getblitz-client:
     dependencies:
       '@getblitz/shared-types':
-        specifier: ^0.0.11
+        specifier: ^0.0.12
         version: link:../shared-types
       qrcode:
         specifier: ^1.5.4
