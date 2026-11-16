@@ -44,3 +44,6 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - Coolify `getblitz-io-apps` env set: `DISABLE_SIGNUPS=true`, `SHUTDOWN_BANNER` (takes effect on next deploy).
 - CI: typecheck/test/format green; E2E fails at Playwright install (ubuntu 26.04 runner), same failure on main since 2026-11-02 — pre-existing.
 - Stage 2 email drafts written: `shutdown/emails/group-a.txt`, `group-b.txt` (not sent).
+- 2026-11-16 16:13 UTC: SMTP env added to `getblitz-io-apps` (runtime only): SMTP_HOST/PORT/USER/PASSWORD as `{{team.*}}` references (provider: Mailjet), SMTP_FROM=no-reply@getblitz.io, SMTP_REPLY_TO=hello@jayokunle.com.
+  **Incident:** the Coolify API response echoed the resolved SMTP credentials into the agent session transcript (not into chat/log/files). Recommended: rotate the Mailjet API key after Stage 2 and update the team shared variable.
+  To check before sending: no-reply@getblitz.io must be an authorised sender in Mailjet, and getblitz.io SPF/DKIM must include Mailjet.
