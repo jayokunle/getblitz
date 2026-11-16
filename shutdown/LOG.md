@@ -21,3 +21,10 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - STATUS: waiting at GATE 0.
 - 2026-11-16: operator ran `stage0_recon.sql` in DBeaver → syntax error at `\echo` (psql-only meta-command); nothing executed, no writes.
   Added `stage0_recon_dbeaver.sql` (single read-only SELECT). Verified against a scratch Postgres built from the repo migrations with fake data.
+- 2026-11-16 16:33: recon results received (DBeaver CSV, not committed). 30 users, 30 orgs, 34 sessions, 27 bank connections.
+  **STOP condition hit:** non-owner orgs with live bank credentials:
+  `peptideplein-2-niew` (Wise CONNECTED, credentials + webhook + 1 bank account) and
+  `peptideplein247` (Qonto NEEDS_REAUTH, credentials + webhook + 1 bank account). All other non-owner connections EXPIRED with no credentials.
+- Email: no SMTP/mail env on any GetBlitz resource. SMTP_* exists on Sprachflow `api-apps` and Semantik `semantik-prod:api-apps` (key names only checked; values not read).
+- Network: getblitz.io (302), app.getblitz.io/api/version (200), docs (200) reachable from session.
+- STATUS: STOPPED at GATE 0, waiting for operator decision. No changes made.
