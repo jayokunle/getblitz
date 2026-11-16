@@ -28,3 +28,11 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - Email: no SMTP/mail env on any GetBlitz resource. SMTP_* exists on Sprachflow `api-apps` and Semantik `semantik-prod:api-apps` (key names only checked; values not read).
 - Network: getblitz.io (302), app.getblitz.io/api/version (200), docs (200) reachable from session.
 - STATUS: STOPPED at GATE 0, waiting for operator decision. No changes made.
+- 2026-11-16: operator decisions at GATE 0:
+  - Live bank access (peptideplein-2-niew Wise, peptideplein247 Qonto): notify now; at Stage 4 delete bank-side webhooks via API where possible, then delete stored tokens. Email asks merchant to revoke access in Wise/Qonto.
+  - Group A = `peptideplein247`, `peptideplein-2-niew` (2 orgs).
+  - Kept as operator's own (not emailed, not deleted): `jayokunle`, `test`, `test4325`.
+  - Not emailed (spam): `httpswhopcomcheckoutplan-…` (deleted at Stage 4).
+  - Group B = remaining 24 orgs + 1 user with no org. Recipient addresses de-duplicated at send time.
+  - Sender + reply-to: hello@jayokunle.com (approved by operator).
+  - SMTP: operator says it is in Coolify team shared env; to be referenced from getblitz-io-apps.
