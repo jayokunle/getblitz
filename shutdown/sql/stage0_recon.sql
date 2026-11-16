@@ -1,4 +1,4 @@
--- GetBlitz shutdown — Stage 0 recon. READ-ONLY.
+-- GetBlitz shutdown — Stage 0 recon. READ-ONLY. psql ONLY (uses \echo). For DBeaver use stage0_recon_dbeaver.sql.
 -- Output: counts, org names/slugs, provider names. No emails, tokens, IBANs or secrets.
 -- Run in Coolify: Databases → getblitz-postgres-apps → Terminal:
 --   psql -U postgres -l                       # find the GetBlitz DB name (likely "postgres" or "getblitz")

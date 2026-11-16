@@ -19,3 +19,5 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - Stripe: the only visible Stripe account is Sprachflow's; not queried. GetBlitz code has no billing.
 - DB queries: NOT run (no DB access from this session). Prepared `shutdown/sql/stage0_recon.sql` (read-only, no PII output).
 - STATUS: waiting at GATE 0.
+- 2026-11-16: operator ran `stage0_recon.sql` in DBeaver → syntax error at `\echo` (psql-only meta-command); nothing executed, no writes.
+  Added `stage0_recon_dbeaver.sql` (single read-only SELECT). Verified against a scratch Postgres built from the repo migrations with fake data.
