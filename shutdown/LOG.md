@@ -47,3 +47,14 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - 2026-11-16 16:13 UTC: SMTP env added to `getblitz-io-apps` (runtime only): SMTP_HOST/PORT/USER/PASSWORD as `{{team.*}}` references (provider: Mailjet), SMTP_FROM=no-reply@getblitz.io, SMTP_REPLY_TO=hello@jayokunle.com.
   **Incident:** the Coolify API response echoed the resolved SMTP credentials into the agent session transcript (not into chat/log/files). Recommended: rotate the Mailjet API key after Stage 2 and update the team shared variable.
   To check before sending: no-reply@getblitz.io must be an authorised sender in Mailjet, and getblitz.io SPF/DKIM must include Mailjet.
+
+### Stage 1 — production verification (2026-11-16 ~16:45 UTC)
+- Deploys finished: getblitz-io-apps @16e8b70 (16:33 UTC) and @ef03756 incl. mailer (16:42 UTC); Website @16e8b70 (16:35 UTC).
+- getblitz.io → www.getblitz.io/en: banner present; 0 links to app.getblitz.io; CTAs → GitHub; SaaS plan "discontinued".
+- app.getblitz.io/sign-in: banner present.
+- POST /api/auth/sign-up/email → 400 `EMAIL_PASSWORD_SIGN_UP_DISABLED`.
+- POST /api/auth/sign-in/social (google) → redirect to accounts.google.com (existing users can still sign in).
+- New Google account → refused in OAuth callback (verified locally against the same code; prod check with a fresh Google account is for the operator).
+- /pay/* public page: no banner. Mailer endpoint: 404 (SHUTDOWN_NOTICE_SECRET not set yet).
+- PR jayokunle/getblitz#69 (mailer) merged; endpoint dormant until secret is set.
+- Screenshots kept outside the repo (agent scratchpad).
