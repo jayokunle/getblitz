@@ -35,6 +35,17 @@ export const env = createEnv({
       .transform((v) => v === "true"),
     /** Optional notice shown at the top of the dashboard and auth pages. */
     SHUTDOWN_BANNER: z.string().optional(),
+    /**
+     * Shutdown notice mailer (POST /api/internal/shutdown-notice). The route
+     * returns 404 unless SHUTDOWN_NOTICE_SECRET is set (min. 32 chars).
+     */
+    SHUTDOWN_NOTICE_SECRET: z.string().min(32).optional(),
+    SMTP_HOST: z.string().optional(),
+    SMTP_PORT: z.coerce.number().optional(),
+    SMTP_USER: z.string().optional(),
+    SMTP_PASSWORD: z.string().optional(),
+    SMTP_FROM: z.string().optional(),
+    SMTP_REPLY_TO: z.string().optional(),
   },
 
   /**
