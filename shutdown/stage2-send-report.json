@@ -1,0 +1,269 @@
+{
+  "campaign": "shutdown-notice:v1",
+  "from": "no-reply@getblitz.io",
+  "replyTo": "hello@jayokunle.com",
+  "note": "ref = first 12 hex of sha256(lowercased address); no addresses stored",
+  "sent": 26,
+  "failed": 0,
+  "entries": [
+    {
+      "ref": "e7b67d771fc6",
+      "group": "A",
+      "orgs": [
+        "peptideplein247",
+        "peptideplein-2-niew"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:09.322Z"
+    },
+    {
+      "ref": "00f4fcb61781",
+      "group": "B",
+      "orgs": [
+        "blackstonegroup"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:11.029Z"
+    },
+    {
+      "ref": "07547cad66c3",
+      "group": "B",
+      "orgs": [
+        "acame-inc"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:12.714Z"
+    },
+    {
+      "ref": "07c5d34b419c",
+      "group": "B",
+      "orgs": [
+        "uzyeinwegvape"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:14.394Z"
+    },
+    {
+      "ref": "093f92d0c15f",
+      "group": "B",
+      "orgs": [
+        "ibrasko-fofana"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:16.076Z"
+    },
+    {
+      "ref": "169f9ebfcf91",
+      "group": "B",
+      "orgs": [
+        "global-investment-platform"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:17.762Z"
+    },
+    {
+      "ref": "1b78c98ea681",
+      "group": "B",
+      "orgs": [
+        "bedzone"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:19.446Z"
+    },
+    {
+      "ref": "3b246bbb0d25",
+      "group": "B",
+      "orgs": [],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:21.156Z"
+    },
+    {
+      "ref": "457cce3614f2",
+      "group": "B",
+      "orgs": [
+        "bale"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:22.849Z"
+    },
+    {
+      "ref": "4e6230d2986d",
+      "group": "B",
+      "orgs": [
+        "buildron-sl"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:24.531Z"
+    },
+    {
+      "ref": "561ed0eaddeb",
+      "group": "B",
+      "orgs": [
+        "acme-inc"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:26.224Z"
+    },
+    {
+      "ref": "5ab7360631b1",
+      "group": "B",
+      "orgs": [
+        "ha-pelje"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:27.905Z"
+    },
+    {
+      "ref": "62199af9f041",
+      "group": "B",
+      "orgs": [
+        "rezverse"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:29.585Z"
+    },
+    {
+      "ref": "69284b366b21",
+      "group": "B",
+      "orgs": [
+        "owner"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:31.266Z"
+    },
+    {
+      "ref": "839787dc2caa",
+      "group": "B",
+      "orgs": [
+        "lacombricollas"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:32.947Z"
+    },
+    {
+      "ref": "8e9c80337058",
+      "group": "B",
+      "orgs": [
+        "franklin-investmennt-grp-ou"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:34.641Z"
+    },
+    {
+      "ref": "929f2409b3cd",
+      "group": "B",
+      "orgs": [
+        "koernerfamily"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:36.317Z"
+    },
+    {
+      "ref": "a3ad24ba3c1e",
+      "group": "B",
+      "orgs": [
+        "we-scale-creators"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:38.005Z"
+    },
+    {
+      "ref": "bfcdbfec2fed",
+      "group": "B",
+      "orgs": [
+        "meaa-digital-marceting"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:39.690Z"
+    },
+    {
+      "ref": "c3e80573d242",
+      "group": "B",
+      "orgs": [
+        "sparky-boy"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:41.361Z"
+    },
+    {
+      "ref": "d9833fc2eb11",
+      "group": "B",
+      "orgs": [
+        "mkulygin"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:43.066Z"
+    },
+    {
+      "ref": "d9d90f8abab5",
+      "group": "B",
+      "orgs": [
+        "aix-investment-group"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:44.750Z"
+    },
+    {
+      "ref": "dc9ee4b8a7fa",
+      "group": "B",
+      "orgs": [
+        "valenzacocom"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:46.426Z"
+    },
+    {
+      "ref": "df1860a0a55d",
+      "group": "B",
+      "orgs": [
+        "fraapos"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:48.098Z"
+    },
+    {
+      "ref": "f65ff3e7f922",
+      "group": "B",
+      "orgs": [
+        "wooshpayment"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:49.775Z"
+    },
+    {
+      "ref": "fb7762b89d1d",
+      "group": "B",
+      "orgs": [
+        "bohem"
+      ],
+      "status": "sent",
+      "attempts": 1,
+      "at": "2026-11-16T17:00:51.447Z"
+    }
+  ]
+}

@@ -67,3 +67,6 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - 16:55 UTC test: both notices sent to the owner of `jayokunle` only; Mailjet accepted both (status sent).
 - STATUS: waiting at GATE 2 (wording, sender, counts). No recipient e-mails sent.
 - 2026-11-16T16:57Z: operator confirmed both test e-mails arrived in the inbox (not spam). Still waiting for wording approval + "go".
+- 2026-11-16 17:00 UTC (18:00 CET): GATE 2 approved by operator ("wording approved, go"). Pre-send dry-run: 26 (A 1, B 25), alreadySent 0.
+- 17:00:09–17:00:51 UTC: send run complete — **26 sent, 0 failed, 0 retries** (A 1/1, B 25/25). Per-recipient log (hash refs + org slugs, no addresses): `shutdown/stage2-send-report.json`.
+- Notice sent 2026-11-16 18:00 CET → SHUTDOWN_AT Thu 2026-11-19 12:00 CET is ~66 h later (≥ 48 h requirement met). SHUTDOWN_AT unchanged.
