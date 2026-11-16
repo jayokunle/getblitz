@@ -476,6 +476,9 @@ importers:
       next-swagger-doc:
         specifier: 'catalog:'
         version: 0.4.1(next@16.4.1(@playwright/test@1.60.0)(@types/node@22.19.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(openapi-types@12.1.3)
+      nodemailer:
+        specifier: 7.0.10
+        version: 7.0.10
       qrcode:
         specifier: 'catalog:'
         version: 1.5.4
@@ -703,7 +706,7 @@ importers:
         version: 3.0.3
       better-auth:
         specifier: 'catalog:'
-        version: 1.7.14(4df0aa31b920d07c40a536f2c627dc6d)
+        version: 1.7.14(00509aa4e7ca9c4ae8b1954cf38cfa8e)
       bullmq:
         specifier: ^5.0.0
         version: 5.66.5
@@ -785,7 +788,7 @@ importers:
         version: 0.13.10(typescript@6.0.3)(valibot@1.5.0(typescript@6.0.3))(zod@4.6.7)
       better-auth:
         specifier: 'catalog:'
-        version: 1.7.14(4df0aa31b920d07c40a536f2c627dc6d)
+        version: 1.7.14(00509aa4e7ca9c4ae8b1954cf38cfa8e)
       zod:
         specifier: 'catalog:'
         version: 4.6.7
@@ -9425,6 +9428,10 @@ packages:
     resolution: {integrity: sha512-x0InOIyzgdk+eyaWaRJFH5snEtiImgBgblZ2CyPrLmqqcuMQkEvcDPHbzqbD8eDsSeJbVOjn+crzyzHaM4D+/A==}
     engines: {node: '>=18'}
 
+  nodemailer@7.0.10:
+    resolution: {integrity: sha512-Us/Se1WtT0ylXgNFfyFSx4LElllVLJXQjWi2Xz17xWw7amDKO2MLtFnVp1WACy7GkVGs+oBlRopVNUzlrGSw1w==}
+    engines: {node: '>=6.0.0'}
+
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
@@ -13104,7 +13111,7 @@ snapshots:
     dependencies:
       '@better-auth/core': 1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(better-call@1.4.4(zod@4.6.7))(jose@6.2.14)(kysely@0.28.17)(nanostores@1.5.5)
       '@better-auth/utils': 0.5.1
-      better-auth: 1.7.14(4df0aa31b920d07c40a536f2c627dc6d)
+      better-auth: 1.7.14(00509aa4e7ca9c4ae8b1954cf38cfa8e)
       better-call: 1.4.4(zod@4.6.7)
       zod: 4.6.7
 
@@ -17878,7 +17885,7 @@ snapshots:
       '@better-auth/utils': 0.5.1
       '@clack/prompts': 1.8.1
       '@mrleebo/prisma-ast': 0.16.0
-      better-auth: 1.7.14(4df0aa31b920d07c40a536f2c627dc6d)
+      better-auth: 1.7.14(00509aa4e7ca9c4ae8b1954cf38cfa8e)
       c12: 4.0.0-rc.4(dotenv@17.4.2)(jiti@2.7.0)
       chalk: 5.6.2
       commander: 15.0.0
@@ -18003,7 +18010,7 @@ snapshots:
 
   bcryptjs@3.0.3: {}
 
-  better-auth@1.7.14(4df0aa31b920d07c40a536f2c627dc6d):
+  better-auth@1.7.14(00509aa4e7ca9c4ae8b1954cf38cfa8e):
     dependencies:
       '@better-auth/core': 1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(better-call@1.4.4(zod@4.6.7))(jose@6.2.14)(kysely@0.28.17)(nanostores@1.5.5)
       '@better-auth/drizzle-adapter': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(better-call@1.4.4(zod@4.6.7))(jose@6.2.14)(kysely@0.28.17)(nanostores@1.5.5))(@better-auth/utils@0.5.1)(drizzle-orm@0.45.2(@electric-sql/pglite@0.3.15)(@prisma/client@7.4.1(prisma@7.4.1(@types/node@22.19.3)(@types/react@19.2.14)(better-sqlite3@12.5.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@6.0.3))(typescript@6.0.3))(@types/pg@8.16.0)(better-sqlite3@12.5.0)(kysely@0.28.17)(mysql2@3.24.4(@types/node@22.19.3))(pg@8.16.3)(postgres@3.4.7)(prisma@7.4.1(@types/node@22.19.3)(@types/react@19.2.14)(better-sqlite3@12.5.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@6.0.3)))
@@ -21525,6 +21532,8 @@ snapshots:
     optional: true
 
   node-releases@2.0.56: {}
+
+  nodemailer@7.0.10: {}
 
   normalize-path@3.0.0: {}
 

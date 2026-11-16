@@ -52,6 +52,7 @@
     "next": "16.4.1",
     "next-intl": "catalog:",
     "next-swagger-doc": "catalog:",
+    "nodemailer": "7.0.10",
     "qrcode": "catalog:",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
