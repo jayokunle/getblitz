@@ -17,6 +17,7 @@ export const auth = initAuth({
   googleClientId: env.AUTH_GOOGLE_ID,
   googleClientSecret: env.AUTH_GOOGLE_SECRET,
   extraPlugins: [nextCookies()],
+  disableSignUp: env.DISABLE_SIGNUPS,
 });
 
 export const getSession = cache(async () =>

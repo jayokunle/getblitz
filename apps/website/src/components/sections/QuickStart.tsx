@@ -144,7 +144,7 @@ export function QuickStartSection() {
             ⭐ {t("github")}
           </a>
           <a
-            href="https://app.getblitz.io"
+            href="https://docs.getblitz.io"
             className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-2 rounded-xl px-8 py-3.5 text-base font-semibold transition-all hover:scale-105 hover:shadow-xl"
           >
             {t("trial")}

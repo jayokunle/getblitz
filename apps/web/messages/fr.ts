@@ -139,6 +139,8 @@ const messages = {
       passwordLabel: "Mot de passe",
       signInButton: "Se connecter avec l'e-mail",
       orContinue: "Ou continuer avec",
+      signupDisabled:
+        "Les nouvelles inscriptions sont fermées. Seuls les comptes GetBlitz existants peuvent se connecter.",
       noAccount: "Vous n'avez pas de compte ? S'inscrire",
       invalidEmail: "Adresse e-mail invalide",
       passwordRequired: "Le mot de passe est obligatoire",

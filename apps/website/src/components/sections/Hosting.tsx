@@ -96,11 +96,7 @@ export function HostingSection() {
               </ul>
 
               <a
-                href={
-                  option.highlighted
-                    ? "https://app.getblitz.io"
-                    : "https://github.com/jayokunle/getblitz"
-                }
+                href="https://github.com/jayokunle/getblitz"
                 className={`inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold transition-all hover:scale-[1.02] ${
                   option.highlighted
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"

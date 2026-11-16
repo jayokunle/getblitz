@@ -99,7 +99,7 @@ export function HeroSection() {
         {/* CTAs */}
         <div className="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href="https://app.getblitz.io"
+            href="https://github.com/jayokunle/getblitz"
             className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-2 rounded-xl px-8 py-3.5 text-base font-semibold transition-all hover:scale-105 hover:shadow-xl"
           >
             {t("ctaPrimary")}
