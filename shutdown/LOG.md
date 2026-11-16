@@ -36,3 +36,11 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
   - Group B = remaining 24 orgs + 1 user with no org. Recipient addresses de-duplicated at send time.
   - Sender + reply-to: hello@jayokunle.com (approved by operator).
   - SMTP: operator says it is in Coolify team shared env; to be referenced from getblitz-io-apps.
+
+## Stage 1 — Stop signups — 2026-11-16 (operator "go")
+
+- PR jayokunle/getblitz#67: server-side signup lock (`DISABLE_SIGNUPS`), org-creation block, banners (`SHUTDOWN_BANNER` on app; hardcoded en/de/fr on website), website CTAs → GitHub/docs.
+- Verified locally against scratch DB: email sign-up blocked; Google new-user sign-up blocked; existing-user session OK; org creation blocked.
+- Coolify `getblitz-io-apps` env set: `DISABLE_SIGNUPS=true`, `SHUTDOWN_BANNER` (takes effect on next deploy).
+- CI: typecheck/test/format green; E2E fails at Playwright install (ubuntu 26.04 runner), same failure on main since 2026-11-02 — pre-existing.
+- Stage 2 email drafts written: `shutdown/emails/group-a.txt`, `group-b.txt` (not sent).
