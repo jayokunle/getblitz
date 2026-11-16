@@ -58,3 +58,11 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - /pay/* public page: no banner. Mailer endpoint: 404 (SHUTDOWN_NOTICE_SECRET not set yet).
 - PR jayokunle/getblitz#69 (mailer) merged; endpoint dormant until secret is set.
 - Screenshots kept outside the repo (agent scratchpad).
+
+## Stage 2 — Notice emails
+
+- 2026-11-16 ~16:50 UTC: operator set SHUTDOWN_NOTICE_SECRET (value never seen by the agent). Coolify "restart" failed twice (Coolify helper-container bug on apps with a separate build server, app kept running); redeploy without rebuild applied the env. Endpoint now 401 without secret.
+- Runner: disabled Coolify scheduled task `cqe5ktjbo0nwq8m7lotiuc0w` on getblitz-io-apps, executed on demand (commands limited to ~255 chars).
+- 16:55 UTC dry-run: total 26 — Group A 1 (orgs peptideplein247, peptideplein-2-niew), Group B 25 (24 orgs + 1 user without org); excluded 3 owner users, 1 spam user. alreadySent 0.
+- 16:55 UTC test: both notices sent to the owner of `jayokunle` only; Mailjet accepted both (status sent).
+- STATUS: waiting at GATE 2 (wording, sender, counts). No recipient e-mails sent.
