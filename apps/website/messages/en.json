@@ -1,4 +1,5 @@
 {
+  "shutdownBanner": "GetBlitz will shut down on 19 Nov 2026 at 12:00 CET. Export your data and switch providers. Source code remains at github.com/jayokunle/getblitz.",
   "nav": {
     "features": "Features",
     "howItWorks": "How It Works",
@@ -6,14 +7,14 @@
     "docs": "Docs",
     "github": "GitHub",
     "apiReference": "API Reference",
-    "getStarted": "Get Started"
+    "getStarted": "Self-host"
   },
   "hero": {
     "badge": "Open Source · MIT Licensed · Made in Europe 🇪🇺",
     "headline": "Save on Processing Fees.",
     "headlineAccent": "Instant Settlement.",
     "subheadline": "GetBlitz is an open-source SEPA Instant Transfer gateway that runs on your infrastructure — zero middlemen, zero transaction fees, zero lock-in. Funds arrive in under 10 seconds.",
-    "ctaPrimary": "Get Started — €10/month",
+    "ctaPrimary": "Self-host on GitHub",
     "ctaSecondary": "Self-Host for Free",
     "trustBar": {
       "sepa": "SEPA Instant",
@@ -159,7 +160,7 @@
     "options": [
       {
         "icon": "☁️",
-        "title": "Managed SaaS",
+        "title": "Managed SaaS (discontinued)",
         "price": "€10/month",
         "description": "The easiest way to get started. We host and manage everything for you.",
         "features": [
@@ -170,7 +171,7 @@
           "Dashboard access",
           "Email support"
         ],
-        "cta": "Start Free Trial",
+        "cta": "Hosted service closes 19 Nov 2026 — self-host instead",
         "highlighted": true
       },
       {
@@ -283,7 +284,7 @@
     "headlineAccent": "Pricing",
     "note": "No transaction fees. No percentage cuts. No hidden costs. You pay a flat monthly fee — or nothing at all.",
     "saas": {
-      "title": "SaaS Plan",
+      "title": "SaaS Plan (discontinued)",
       "price": "€10",
       "period": "/month",
       "features": [
@@ -295,7 +296,7 @@
         "Email support",
         "Additional bank connections: +€3/month each"
       ],
-      "cta": "Start Free Trial"
+      "cta": "Hosted service closes 19 Nov 2026 — self-host instead"
     },
     "selfHosted": {
       "title": "Self-Hosted",
@@ -315,7 +316,7 @@
     "headline": "Up and Running in",
     "headlineAccent": "Under 5 Minutes",
     "github": "Star on GitHub",
-    "trial": "Start SaaS Trial — €10/month"
+    "trial": "Self-hosting guide"
   },
   "footer": {
     "tagline": "Open-source SEPA payments for European businesses",

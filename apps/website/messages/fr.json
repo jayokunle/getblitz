@@ -1,4 +1,5 @@
 {
+  "shutdownBanner": "GetBlitz fermera le 19 nov. 2026 à 12h00 CET. Exportez vos données et changez de prestataire. Le code source reste disponible sur github.com/jayokunle/getblitz.",
   "nav": {
     "features": "Fonctionnalités",
     "howItWorks": "Comment ça marche",
@@ -6,14 +7,14 @@
     "docs": "Documentation",
     "github": "GitHub",
     "apiReference": "Référence API",
-    "getStarted": "Commencer"
+    "getStarted": "Auto-héberger"
   },
   "hero": {
     "badge": "Open Source · Licence MIT · Made in Europe 🇪🇺",
     "headline": "Votre Passerelle de Paiement.",
     "headlineAccent": "Vos Données. Vos Règles.",
     "subheadline": "GetBlitz est une passerelle de virement instantané SEPA open source qui fonctionne sur votre infrastructure — zéro intermédiaire, zéro tracking, zéro dépendance. Conçu pour les entreprises européennes qui valorisent la souveraineté.",
-    "ctaPrimary": "Commencer — €10/mois",
+    "ctaPrimary": "Auto-héberger via GitHub",
     "ctaSecondary": "Auto-hébergement gratuit",
     "trustBar": {
       "sepa": "SEPA Instantané",
@@ -159,7 +160,7 @@
     "options": [
       {
         "icon": "☁️",
-        "title": "SaaS Géré",
+        "title": "SaaS géré (arrêté)",
         "price": "€10/mois",
         "description": "La façon la plus simple de commencer. Nous hébergeons et gérons tout pour vous.",
         "features": [
@@ -170,7 +171,7 @@
           "Accès au tableau de bord",
           "Support par e-mail"
         ],
-        "cta": "Démarrer l'essai gratuit",
+        "cta": "Le service hébergé ferme le 19 nov. 2026 — auto-hébergez plutôt",
         "highlighted": true
       },
       {
@@ -283,7 +284,7 @@
     "headlineAccent": "transparente",
     "note": "Pas de frais de transaction. Pas de pourcentages prélevés. Pas de coûts cachés. Vous payez un forfait mensuel — ou rien du tout.",
     "saas": {
-      "title": "Plan SaaS",
+      "title": "Plan SaaS (arrêté)",
       "price": "€10",
       "period": "/mois",
       "features": [
@@ -295,7 +296,7 @@
         "Support par e-mail",
         "Connexions bancaires supplémentaires : +€3/mois"
       ],
-      "cta": "Démarrer l'essai gratuit"
+      "cta": "Le service hébergé ferme le 19 nov. 2026 — auto-hébergez plutôt"
     },
     "selfHosted": {
       "title": "Auto-hébergé",
@@ -315,7 +316,7 @@
     "headline": "Opérationnel en",
     "headlineAccent": "moins de 5 minutes",
     "github": "Étoiler sur GitHub",
-    "trial": "Démarrer l'essai SaaS — €10/mois"
+    "trial": "Guide d'auto-hébergement"
   },
   "footer": {
     "tagline": "Paiements SEPA open source pour les entreprises européennes",

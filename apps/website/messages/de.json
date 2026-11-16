@@ -1,4 +1,5 @@
 {
+  "shutdownBanner": "GetBlitz wird am 19. Nov. 2026 um 12:00 Uhr MEZ eingestellt. Exportieren Sie Ihre Daten und wechseln Sie den Anbieter. Der Quellcode bleibt unter github.com/jayokunle/getblitz verfügbar.",
   "nav": {
     "features": "Funktionen",
     "howItWorks": "So funktioniert es",
@@ -6,14 +7,14 @@
     "docs": "Dokumentation",
     "github": "GitHub",
     "apiReference": "API-Referenz",
-    "getStarted": "Jetzt starten"
+    "getStarted": "Selbst hosten"
   },
   "hero": {
     "badge": "Open Source · MIT lizenziert · Made in Europe 🇪🇺",
     "headline": "Ihr Payment Gateway.",
     "headlineAccent": "Ihre Daten. Ihre Regeln.",
     "subheadline": "GetBlitz ist ein Open-Source-SEPA-Sofortüberweisungs-Gateway, das auf Ihrer Infrastruktur läuft — keine Mittelsmänner, kein Tracking, kein Lock-in. Für europäische Unternehmen, die Datensouveränität schätzen.",
-    "ctaPrimary": "Jetzt starten — €10/Monat",
+    "ctaPrimary": "Auf GitHub selbst hosten",
     "ctaSecondary": "Kostenlos selbst hosten",
     "trustBar": {
       "sepa": "SEPA Instant",
@@ -159,7 +160,7 @@
     "options": [
       {
         "icon": "☁️",
-        "title": "Managed SaaS",
+        "title": "Managed SaaS (eingestellt)",
         "price": "€10/Monat",
         "description": "Der einfachste Weg, loszulegen. Wir hosten und verwalten alles für Sie.",
         "features": [
@@ -170,7 +171,7 @@
           "Dashboard-Zugriff",
           "E-Mail-Support"
         ],
-        "cta": "Kostenlose Testversion starten",
+        "cta": "Gehosteter Dienst endet am 19. Nov. 2026 — stattdessen selbst hosten",
         "highlighted": true
       },
       {
@@ -283,7 +284,7 @@
     "headlineAccent": "Preisgestaltung",
     "note": "Keine Transaktionsgebühren. Keine Prozentualen Abzüge. Keine versteckten Kosten. Sie zahlen eine pauschale Monatsgebühr — oder gar nichts.",
     "saas": {
-      "title": "SaaS-Plan",
+      "title": "SaaS-Plan (eingestellt)",
       "price": "€10",
       "period": "/Monat",
       "features": [
@@ -295,7 +296,7 @@
         "E-Mail-Support",
         "Weitere Bankverbindungen: +€3/Monat"
       ],
-      "cta": "Kostenlose Testversion starten"
+      "cta": "Gehosteter Dienst endet am 19. Nov. 2026 — stattdessen selbst hosten"
     },
     "selfHosted": {
       "title": "Self-Hosted",
@@ -315,7 +316,7 @@
     "headline": "Einsatzbereit in",
     "headlineAccent": "unter 5 Minuten",
     "github": "Auf GitHub favorisieren",
-    "trial": "SaaS-Testversion starten — €10/Monat"
+    "trial": "Anleitung zum Selbsthosten"
   },
   "footer": {
     "tagline": "Open-Source-SEPA-Zahlungen für europäische Unternehmen",

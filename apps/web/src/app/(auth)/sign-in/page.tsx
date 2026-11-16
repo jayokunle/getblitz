@@ -1,7 +1,8 @@
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "@tanstack/react-form";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
@@ -14,10 +15,14 @@ import { toast } from "@getblitz/ui/toast";
 
 import { authClient } from "~/auth/client";
 
-export default function SignInPage() {
+function SignInForm() {
   const router = useRouter();
   const t = useTranslations("AuthPage.signIn");
   const tCommon = useTranslations("Common");
+
+  // better-auth redirects back here with ?error=signup_disabled when a Google
+  // account without an existing GetBlitz user tries to sign in.
+  const signupDisabled = useSearchParams().get("error") === "signup_disabled";
 
   const form = useForm({
     defaultValues: {
@@ -47,6 +52,7 @@ export default function SignInPage() {
     await authClient.signIn.social({
       provider: "google",
       callbackURL: "/",
+      errorCallbackURL: "/sign-in",
     });
   };
 
@@ -58,6 +64,15 @@ export default function SignInPage() {
           {t("description")}
         </p>
       </div>
+
+      {signupDisabled && (
+        <p
+          role="alert"
+          className="rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-center text-sm text-amber-900 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-100"
+        >
+          {t("signupDisabled")}
+        </p>
+      )}
 
       <div className="grid gap-6">
         <form
@@ -178,5 +193,13 @@ export default function SignInPage() {
         </Link>
       </p>
     </div>
+  );
+}
+
+export default function SignInPage() {
+  return (
+    <Suspense>
+      <SignInForm />
+    </Suspense>
   );
 }

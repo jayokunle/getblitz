@@ -5,6 +5,8 @@ import BaseLink from "next/link";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
+import { ShutdownBanner } from "./ShutdownBanner";
+
 export function Navbar() {
   const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
@@ -24,6 +26,7 @@ export function Navbar() {
         scrolled ? "nav-scrolled" : "bg-transparent"
       }`}
     >
+      <ShutdownBanner />
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-2">
@@ -91,7 +94,7 @@ export function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-3">
           <a
-            href="https://app.getblitz.io"
+            href="https://github.com/jayokunle/getblitz"
             className="bg-primary text-primary-foreground hover:bg-primary/90 hidden items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors md:inline-flex"
           >
             {t("getStarted")}
@@ -166,7 +169,7 @@ export function Navbar() {
             {t("apiReference")}
           </BaseLink>
           <a
-            href="https://app.getblitz.io"
+            href="https://github.com/jayokunle/getblitz"
             className="bg-primary text-primary-foreground inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium"
           >
             {t("getStarted")}

@@ -15,7 +15,16 @@ export function initAuth<
   googleClientId: string;
   googleClientSecret: string;
   extraPlugins: TExtraPlugins;
+  /**
+   * When true, no new users or organizations can be created (server-side):
+   * Google sign-in only works for existing accounts, email/password sign-up
+   * stays off, and organization creation is rejected. Existing users can
+   * still sign in.
+   */
+  disableSignUp?: boolean;
 }) {
+  const disableSignUp = options.disableSignUp ?? false;
+
   const config = {
     database: prismaAdapter(prisma, {
       provider: "postgresql",
@@ -27,7 +36,9 @@ export function initAuth<
         productionURL: options.productionUrl,
         currentURL: options.baseUrl,
       }),
-      organization(),
+      organization({
+        allowUserToCreateOrganization: !disableSignUp,
+      }),
       apiKey([
         {
           configId: "org-keys",
@@ -37,8 +48,13 @@ export function initAuth<
       ]),
       ...options.extraPlugins,
     ],
+    emailAndPassword: {
+      enabled: false,
+      disableSignUp: true,
+    },
     socialProviders: {
       google: {
+        disableSignUp,
         clientId: options.googleClientId,
         clientSecret: options.googleClientSecret,
         redirectURI: `${options.productionUrl}/api/auth/callback/google`,

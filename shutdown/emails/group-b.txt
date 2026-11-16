@@ -1,0 +1,20 @@
+Subject: GetBlitz is closing on 19 November 2026
+
+Hello,
+
+we are discontinuing the hosted GetBlitz service. The service at app.getblitz.io will stop on
+
+    Thursday, 19 November 2026, 12:00 CET (Berlin time)
+
+You are receiving this because you have a GetBlitz account. Your account has not processed any payments, so no action is needed.
+
+After the shutdown, your account and all associated data will be permanently deleted.
+
+GetBlitz remains available as MIT-licensed open-source software that you can host yourself: https://github.com/jayokunle/getblitz
+
+Thank you for trying GetBlitz.
+
+Jacob Ayokunle
+GetBlitz – JAyokunle Enterprise UG (haftungsbeschränkt), Augsburg, Germany
+Impressum: https://getblitz.io/en/impressum
+Reply to this email for any questions.

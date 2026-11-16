@@ -25,6 +25,16 @@ export const env = createEnv({
       .enum(["development", "production", "preview", "test"])
       .default("development"),
     ENCRYPTION_KEY: z.string().min(32),
+    /**
+     * "true" blocks creation of new users and organizations (server-side).
+     * Existing users can still sign in. Used for the hosted-service shutdown.
+     */
+    DISABLE_SIGNUPS: z
+      .enum(["true", "false"])
+      .default("false")
+      .transform((v) => v === "true"),
+    /** Optional notice shown at the top of the dashboard and auth pages. */
+    SHUTDOWN_BANNER: z.string().optional(),
   },
 
   /**

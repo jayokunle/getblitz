@@ -94,7 +94,7 @@ export function PricingSection() {
               </ul>
 
               <a
-                href="https://app.getblitz.io"
+                href="https://github.com/jayokunle/getblitz"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 mt-8 block w-full rounded-2xl px-6 py-4 text-center text-lg font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(var(--primary),0.4)]"
               >
                 {t("saas.cta")}

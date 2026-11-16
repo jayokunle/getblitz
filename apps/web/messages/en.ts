@@ -140,6 +140,8 @@ const messages = {
       passwordLabel: "Password",
       signInButton: "Sign In with Email",
       orContinue: "Or continue with",
+      signupDisabled:
+        "New sign-ups are closed. Only existing GetBlitz accounts can sign in.",
       noAccount: "Don't have an account? Sign Up",
       invalidEmail: "Invalid email address",
       passwordRequired: "Password is required",
