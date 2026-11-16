@@ -66,3 +66,4 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - 16:55 UTC dry-run: total 26 — Group A 1 (orgs peptideplein247, peptideplein-2-niew), Group B 25 (24 orgs + 1 user without org); excluded 3 owner users, 1 spam user. alreadySent 0.
 - 16:55 UTC test: both notices sent to the owner of `jayokunle` only; Mailjet accepted both (status sent).
 - STATUS: waiting at GATE 2 (wording, sender, counts). No recipient e-mails sent.
+- 2026-11-16T16:57Z: operator confirmed both test e-mails arrived in the inbox (not spam). Still waiting for wording approval + "go".
