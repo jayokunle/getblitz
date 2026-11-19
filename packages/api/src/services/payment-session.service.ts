@@ -1,3 +1,4 @@
+import { TRPCError } from "@trpc/server";
 import { jwtVerify, SignJWT } from "jose";
 import QRCode from "qrcode";
 
@@ -19,7 +20,7 @@ import type {
   SessionDetailsResult,
   SimulatePaymentResult,
 } from "../interfaces";
-import { env } from "../env";
+import { env, SERVICE_DISCONTINUED_MESSAGE } from "../env";
 import { generateReferenceId } from "../utils/reference-id";
 import { centsToEuros, generateSepaQrString } from "../utils/sepa-qr";
 
@@ -63,6 +64,12 @@ export class PaymentSessionService implements IPaymentSessionService {
     },
     tx?: Prisma.TransactionClient,
   ): Promise<CreateChallengeResult> {
+    if (env.BLOCK_NEW_PAYMENT_SESSIONS) {
+      throw new TRPCError({
+        code: "FORBIDDEN",
+        message: SERVICE_DISCONTINUED_MESSAGE,
+      });
+    }
     const {
       organizationId,
       amount,

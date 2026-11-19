@@ -1,0 +1,48 @@
+# Stage 4 step 5 (docs.getblitz.io): copy this file over
+# .github/workflows/deploy-docs.yml and merge to main. GitHub Pages then serves
+# the static shutdown notice for docs.getblitz.io (custom domain and Cloudflare
+# DNS stay as they are). Every unknown path shows the notice via 404.html.
+# The documentation sources stay in the repo under apps/docs.
+name: Deploy Docs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "shutdown/notice/**"
+      - ".github/workflows/deploy-docs.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Package shutdown notice
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare site
+        run: |
+          mkdir -p site
+          cp shutdown/notice/index.html site/index.html
+          cp shutdown/notice/index.html site/404.html
+
+      - name: Upload Build Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

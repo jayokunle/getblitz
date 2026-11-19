@@ -2,6 +2,7 @@
 export { BankConnectionService } from "./bank-connection.service";
 export { BankWebhookService } from "./bank-webhook.service";
 export { CredentialManagerService } from "./credential-manager.service";
+export { SecurityService } from "./security.service";
 export { OrganizationService } from "./organization.service";
 export { PaymentSessionService } from "./payment-session.service";
 export { PaymentSettlementService } from "./payment-settlement.service";
