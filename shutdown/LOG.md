@@ -70,3 +70,34 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - 2026-11-16 17:00 UTC (18:00 CET): GATE 2 approved by operator ("wording approved, go"). Pre-send dry-run: 26 (A 1, B 25), alreadySent 0.
 - 17:00:09–17:00:51 UTC: send run complete — **26 sent, 0 failed, 0 retries** (A 1/1, B 25/25). Per-recipient log (hash refs + org slugs, no addresses): `shutdown/stage2-send-report.json`.
 - Notice sent 2026-11-16 18:00 CET → SHUTDOWN_AT Thu 2026-11-19 12:00 CET is ~66 h later (≥ 48 h requirement met). SHUTDOWN_AT unchanged.
+
+## Stage 3 — Pre-shutdown prep (started 2026-11-19 17:10 UTC, after SHUTDOWN_AT)
+
+- NOTE: SHUTDOWN_AT (2026-11-19 12:00 CET) passed before Stage 3 started; service still fully running, nothing irreversible done.
+- PR jayokunle/getblitz#70 merged (e13f233): BLOCK_NEW_PAYMENT_SESSIONS flag, POST /api/internal/shutdown (plan/revoke-banks/delete-keys/purge; dry run unless execute+token), shutdown/run.sh, shutdown/backup.sh, static notice + nginx config, docs Pages notice workflow. Verified end to end on a scratch DB (see PR).
+- Coolify backup run now (server-side, also copied to S3, not client-side encrypted): `production` DB 90,141 bytes at 17:24 UTC (exec sfutal57dgqjz5267kxp4x9n). Previous: 00:00 UTC same day.
+- DB server holds 3 databases: `production` (GetBlitz data), `preview` (empty), `postgres` (default).
+- Notice app created in Coolify: `getblitz-shutdown-notice` (fsdrun4h4q5q0me7ouvrg80z), project GetBlitz, server coolify-apps, static build from shutdown/notice, custom nginx config set, NO domains (not public).
+- docs.getblitz.io = GitHub Pages behind Cloudflare → step 5 swaps the Pages workflow (shutdown/deploy-docs-notice.yml), no DNS change.
+
+## Stage 4 — Shutdown (GATE 3 approved 2026-11-19 ~17:53 UTC)
+
+- Operator: "I have backed up the DB, you can just go for stage 4". Operator-reported backup (restore-check output not shared with agent) + Coolify backup of `production` at 17:24 UTC (S3).
+- Defaults accepted as presented at GATE 3: keep orgs jayokunle/test/test4325 + their 3 users; delete ALL API keys + merchant webhooks (incl. own); kept payment sessions untouched (incl. client tokens); DB + Redis keep running.
+- 2026-11-19T17:54Z step 1: BLOCK_NEW_PAYMENT_SESSIONS=true set on getblitz-io-apps; redeploy oxvqsq9vepv080x2jtki2gw5 queued (no rebuild).
+- 17:56 UTC step 1 verified: blockNewPaymentSessions "true" (flag returns raw string; an explicit "false" would also be truthy — cleanup item), in-flight sessions 0.
+- 17:57 UTC step 2 revoke-banks (REVOKE-BANKS-5): stored credentials/config/webhook secrets wiped on all 5 connections (rows kept, status DISCONNECTED).
+  - peptideplein-2-niew / wise: webhook DELETED at Wise; API token → manual (merchant asked in notice e-mail).
+  - jayokunle / qonto: webhook lookup FAILED (Qonto 401, grant already expired); revoke call sent without error (RFC 7009 returns OK even for dead tokens) → MANUAL: operator revokes GetBlitz app + webhook in Qonto.
+  - peptideplein247 / qonto (NEEDS_REAUTH): same as above → MANUAL on merchant side (asked in notice e-mail).
+  - owner / qonto (EXPIRED), peptideplein247 / qonto (EXPIRED): config only, wiped; nothing at bank.
+  - Coolify log redaction hid the per-connection "token" field.
+- 17:57 UTC step 3 delete-keys (DELETE-KEYS-12): organization_webhook 3 deleted; apikey deleted (count redacted by Coolify; post-check apiKeys = 0).
+- 17:57 UTC step 4 purge (PURGE-27), one transaction — deleted rows: organization 27, user 27, member 27, account 27, session 29, organization_bank_account 24, bank_account 2, payment_session 7, customer 1, apikey (redacted, 0 left), organization_webhook 0, invoice 0, transaction 0, invitation 0, verification 0.
+  keptUnchanged = true (kept orgs jayokunle/test/test4325: payment_session 27 [PAID 8], transaction 8, bank_account 1).
+- 17:58 UTC post-check plan: bank secrets 0, apiKeys 0, webhooks 0, nothing left to purge.
+- 17:58 UTC step 5 notice: domains removed from getblitz-io-apps (was https://app.getblitz.io) and Website (was https://getblitz.io,https://www.getblitz.io); set on notice apps `getblitz-shutdown-notice-app` (30pk0mvzdchbrzni2euhepa7, coolify-apps, nginx:1.27-alpine + mounted notice files; registry push for a new image was denied) and `getblitz-shutdown-notice-website` (z8c8hnfaynca1qdmgrfopkcz, localhost, static build); both redeployed.
+  docs.getblitz.io: PR jayokunle/getblitz#71 swaps the Pages workflow to publish the notice.
+- 17:59 UTC step 6: getblitz-io-apps and Website STOPPED (exited), descriptions marked "delete on or after 2026-12-03". getblitz-postgres-apps + getblitz-redis-apps left running (retention). Shared servers/proxies/team variables untouched.
+- 18:00 UTC public check: getblitz.io, www, app. (all page paths incl. /sign-in, /pay/*, /en/impressum) → 410 + notice; /api/*, /socket.io/* → 410 JSON service_discontinued; headers noindex + no-store, no cookies.
+- Runner scheduled task deleted. Migration note: GetBlitz already runs on coolify-apps (the "rehearsal clone" app WAS production) — nothing left to migrate; remove GetBlitz from any migration plan kept outside Coolify.

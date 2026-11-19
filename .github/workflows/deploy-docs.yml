@@ -5,40 +5,38 @@ on:
     branches:
       - main
     paths:
-      - "apps/docs/**"
+      - "shutdown/notice/**"
       - ".github/workflows/deploy-docs.yml"
+  workflow_dispatch:
 
 jobs:
   build:
-    name: Build Docusaurus
-    runs-on: ubuntu-latest
+    name: Package shutdown notice
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Setup
-        uses: ./tooling/github/setup
-
-      - name: Build website
-        run: pnpm --filter apps-docs build
+      - name: Prepare site
+        run: |
+          mkdir -p site
+          cp shutdown/notice/index.html site/index.html
+          cp shutdown/notice/index.html site/404.html
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/docs/build
+          path: site
 
   deploy:
     name: Deploy to GitHub Pages
     needs: build
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
