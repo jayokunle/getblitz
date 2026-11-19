@@ -70,3 +70,12 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - 2026-11-16 17:00 UTC (18:00 CET): GATE 2 approved by operator ("wording approved, go"). Pre-send dry-run: 26 (A 1, B 25), alreadySent 0.
 - 17:00:09–17:00:51 UTC: send run complete — **26 sent, 0 failed, 0 retries** (A 1/1, B 25/25). Per-recipient log (hash refs + org slugs, no addresses): `shutdown/stage2-send-report.json`.
 - Notice sent 2026-11-16 18:00 CET → SHUTDOWN_AT Thu 2026-11-19 12:00 CET is ~66 h later (≥ 48 h requirement met). SHUTDOWN_AT unchanged.
+
+## Stage 3 — Pre-shutdown prep (started 2026-11-19 17:10 UTC, after SHUTDOWN_AT)
+
+- NOTE: SHUTDOWN_AT (2026-11-19 12:00 CET) passed before Stage 3 started; service still fully running, nothing irreversible done.
+- PR jayokunle/getblitz#70 merged (e13f233): BLOCK_NEW_PAYMENT_SESSIONS flag, POST /api/internal/shutdown (plan/revoke-banks/delete-keys/purge; dry run unless execute+token), shutdown/run.sh, shutdown/backup.sh, static notice + nginx config, docs Pages notice workflow. Verified end to end on a scratch DB (see PR).
+- Coolify backup run now (server-side, also copied to S3, not client-side encrypted): `production` DB 90,141 bytes at 17:24 UTC (exec sfutal57dgqjz5267kxp4x9n). Previous: 00:00 UTC same day.
+- DB server holds 3 databases: `production` (GetBlitz data), `preview` (empty), `postgres` (default).
+- Notice app created in Coolify: `getblitz-shutdown-notice` (fsdrun4h4q5q0me7ouvrg80z), project GetBlitz, server coolify-apps, static build from shutdown/notice, custom nginx config set, NO domains (not public).
+- docs.getblitz.io = GitHub Pages behind Cloudflare → step 5 swaps the Pages workflow (shutdown/deploy-docs-notice.yml), no DNS change.
