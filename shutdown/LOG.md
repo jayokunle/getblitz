@@ -79,3 +79,9 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - DB server holds 3 databases: `production` (GetBlitz data), `preview` (empty), `postgres` (default).
 - Notice app created in Coolify: `getblitz-shutdown-notice` (fsdrun4h4q5q0me7ouvrg80z), project GetBlitz, server coolify-apps, static build from shutdown/notice, custom nginx config set, NO domains (not public).
 - docs.getblitz.io = GitHub Pages behind Cloudflare → step 5 swaps the Pages workflow (shutdown/deploy-docs-notice.yml), no DNS change.
+
+## Stage 4 — Shutdown (GATE 3 approved 2026-11-19 ~17:53 UTC)
+
+- Operator: "I have backed up the DB, you can just go for stage 4". Operator-reported backup (restore-check output not shared with agent) + Coolify backup of `production` at 17:24 UTC (S3).
+- Defaults accepted as presented at GATE 3: keep orgs jayokunle/test/test4325 + their 3 users; delete ALL API keys + merchant webhooks (incl. own); kept payment sessions untouched (incl. client tokens); DB + Redis keep running.
+- 2026-11-19T17:54Z step 1: BLOCK_NEW_PAYMENT_SESSIONS=true set on getblitz-io-apps; redeploy oxvqsq9vepv080x2jtki2gw5 queued (no rebuild).
