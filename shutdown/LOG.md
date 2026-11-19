@@ -47,3 +47,26 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - 2026-11-16 16:13 UTC: SMTP env added to `getblitz-io-apps` (runtime only): SMTP_HOST/PORT/USER/PASSWORD as `{{team.*}}` references (provider: Mailjet), SMTP_FROM=no-reply@getblitz.io, SMTP_REPLY_TO=hello@jayokunle.com.
   **Incident:** the Coolify API response echoed the resolved SMTP credentials into the agent session transcript (not into chat/log/files). Recommended: rotate the Mailjet API key after Stage 2 and update the team shared variable.
   To check before sending: no-reply@getblitz.io must be an authorised sender in Mailjet, and getblitz.io SPF/DKIM must include Mailjet.
+
+### Stage 1 — production verification (2026-11-16 ~16:45 UTC)
+- Deploys finished: getblitz-io-apps @16e8b70 (16:33 UTC) and @ef03756 incl. mailer (16:42 UTC); Website @16e8b70 (16:35 UTC).
+- getblitz.io → www.getblitz.io/en: banner present; 0 links to app.getblitz.io; CTAs → GitHub; SaaS plan "discontinued".
+- app.getblitz.io/sign-in: banner present.
+- POST /api/auth/sign-up/email → 400 `EMAIL_PASSWORD_SIGN_UP_DISABLED`.
+- POST /api/auth/sign-in/social (google) → redirect to accounts.google.com (existing users can still sign in).
+- New Google account → refused in OAuth callback (verified locally against the same code; prod check with a fresh Google account is for the operator).
+- /pay/* public page: no banner. Mailer endpoint: 404 (SHUTDOWN_NOTICE_SECRET not set yet).
+- PR jayokunle/getblitz#69 (mailer) merged; endpoint dormant until secret is set.
+- Screenshots kept outside the repo (agent scratchpad).
+
+## Stage 2 — Notice emails
+
+- 2026-11-16 ~16:50 UTC: operator set SHUTDOWN_NOTICE_SECRET (value never seen by the agent). Coolify "restart" failed twice (Coolify helper-container bug on apps with a separate build server, app kept running); redeploy without rebuild applied the env. Endpoint now 401 without secret.
+- Runner: disabled Coolify scheduled task `cqe5ktjbo0nwq8m7lotiuc0w` on getblitz-io-apps, executed on demand (commands limited to ~255 chars).
+- 16:55 UTC dry-run: total 26 — Group A 1 (orgs peptideplein247, peptideplein-2-niew), Group B 25 (24 orgs + 1 user without org); excluded 3 owner users, 1 spam user. alreadySent 0.
+- 16:55 UTC test: both notices sent to the owner of `jayokunle` only; Mailjet accepted both (status sent).
+- STATUS: waiting at GATE 2 (wording, sender, counts). No recipient e-mails sent.
+- 2026-11-16T16:57Z: operator confirmed both test e-mails arrived in the inbox (not spam). Still waiting for wording approval + "go".
+- 2026-11-16 17:00 UTC (18:00 CET): GATE 2 approved by operator ("wording approved, go"). Pre-send dry-run: 26 (A 1, B 25), alreadySent 0.
+- 17:00:09–17:00:51 UTC: send run complete — **26 sent, 0 failed, 0 retries** (A 1/1, B 25/25). Per-recipient log (hash refs + org slugs, no addresses): `shutdown/stage2-send-report.json`.
+- Notice sent 2026-11-16 18:00 CET → SHUTDOWN_AT Thu 2026-11-19 12:00 CET is ~66 h later (≥ 48 h requirement met). SHUTDOWN_AT unchanged.

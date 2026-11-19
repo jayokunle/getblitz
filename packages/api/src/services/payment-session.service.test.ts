@@ -15,11 +15,14 @@ import type {
 import { PaymentSessionService } from "./payment-session.service";
 
 // Mock env
+const mockEnv = vi.hoisted(() => ({
+  ENCRYPTION_KEY: "test-encryption-key-min-32-chars!!",
+  NEXT_PUBLIC_APP_URL: "http://localhost:3000",
+  BLOCK_NEW_PAYMENT_SESSIONS: false,
+}));
 vi.mock("../env", () => ({
-  env: {
-    ENCRYPTION_KEY: "test-encryption-key-min-32-chars!!",
-    NEXT_PUBLIC_APP_URL: "http://localhost:3000",
-  },
+  env: mockEnv,
+  SERVICE_DISCONTINUED_MESSAGE: "service discontinued (test)",
 }));
 
 // Mock ProviderRegistry
@@ -194,6 +197,23 @@ describe("PaymentSessionService", () => {
     ).rejects.toThrow(
       'A payment with merchantReferenceId "order-123" already exists for this organization',
     );
+  });
+
+  it("rejects new sessions when BLOCK_NEW_PAYMENT_SESSIONS is on", async () => {
+    const input: CreateChallengeInput = {
+      organizationId: "org-1",
+      amount: 1000,
+      currency: Currency.EUR,
+    };
+    mockEnv.BLOCK_NEW_PAYMENT_SESSIONS = true;
+    try {
+      await expect(
+        service.createChallenge({ input, baseUrl: "https://pay.test" }),
+      ).rejects.toThrow("service discontinued (test)");
+      expect(mockSessionRepo.create).not.toHaveBeenCalled();
+    } finally {
+      mockEnv.BLOCK_NEW_PAYMENT_SESSIONS = false;
+    }
   });
 
   it("should create a challenge with allowed redirectUrl", async () => {

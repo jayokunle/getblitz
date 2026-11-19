@@ -12,6 +12,14 @@ export function apiEnv() {
       APPLICATION_ENV: z
         .enum(["development", "production", "preview", "test"])
         .default("development"),
+      /**
+       * "true" rejects creation of new payment sessions (hosted-service
+       * shutdown). Existing sessions keep working until they finish/expire.
+       */
+      BLOCK_NEW_PAYMENT_SESSIONS: z
+        .enum(["true", "false"])
+        .default("false")
+        .transform((v) => v === "true"),
     },
     clientPrefix: "NEXT_PUBLIC_",
     client: {
@@ -35,3 +43,6 @@ export const env = apiEnv();
 export function areTestProvidersEnabled(): boolean {
   return env.NODE_ENV !== "production" && env.APPLICATION_ENV !== "production";
 }
+
+export const SERVICE_DISCONTINUED_MESSAGE =
+  "The hosted GetBlitz service has been discontinued. New payments are no longer accepted. The software remains available for self-hosting at https://github.com/jayokunle/getblitz";
