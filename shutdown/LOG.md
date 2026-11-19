@@ -101,3 +101,6 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - 17:59 UTC step 6: getblitz-io-apps and Website STOPPED (exited), descriptions marked "delete on or after 2026-12-03". getblitz-postgres-apps + getblitz-redis-apps left running (retention). Shared servers/proxies/team variables untouched.
 - 18:00 UTC public check: getblitz.io, www, app. (all page paths incl. /sign-in, /pay/*, /en/impressum) → 410 + notice; /api/*, /socket.io/* → 410 JSON service_discontinued; headers noindex + no-store, no cookies.
 - Runner scheduled task deleted. Migration note: GetBlitz already runs on coolify-apps (the "rehearsal clone" app WAS production) — nothing left to migrate; remove GetBlitz from any migration plan kept outside Coolify.
+- 18:04 UTC PR jayokunle/getblitz#71 merged (d1c1794): docs.getblitz.io now serves the notice via GitHub Pages (HTTP 200; Pages cannot send 410).
+- 18:04 UTC the merge triggered a Coolify webhook deploy of the STOPPED getblitz-io-apps (no path filter) → cancelled within ~1 min (6zcjqz55loaozz4ze1irb9v0); app verified still exited. Auto-deploy now DISABLED on getblitz-io-apps, Website and getblitz-shutdown-notice-website so future pushes to main cannot restart them.
+- Stage 4 COMPLETE ~18:05 UTC. All four domains show the notice.
