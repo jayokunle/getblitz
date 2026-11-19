@@ -85,3 +85,14 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - Operator: "I have backed up the DB, you can just go for stage 4". Operator-reported backup (restore-check output not shared with agent) + Coolify backup of `production` at 17:24 UTC (S3).
 - Defaults accepted as presented at GATE 3: keep orgs jayokunle/test/test4325 + their 3 users; delete ALL API keys + merchant webhooks (incl. own); kept payment sessions untouched (incl. client tokens); DB + Redis keep running.
 - 2026-11-19T17:54Z step 1: BLOCK_NEW_PAYMENT_SESSIONS=true set on getblitz-io-apps; redeploy oxvqsq9vepv080x2jtki2gw5 queued (no rebuild).
+- 17:56 UTC step 1 verified: blockNewPaymentSessions "true" (flag returns raw string; an explicit "false" would also be truthy — cleanup item), in-flight sessions 0.
+- 17:57 UTC step 2 revoke-banks (REVOKE-BANKS-5): stored credentials/config/webhook secrets wiped on all 5 connections (rows kept, status DISCONNECTED).
+  - peptideplein-2-niew / wise: webhook DELETED at Wise; API token → manual (merchant asked in notice e-mail).
+  - jayokunle / qonto: webhook lookup FAILED (Qonto 401, grant already expired); revoke call sent without error (RFC 7009 returns OK even for dead tokens) → MANUAL: operator revokes GetBlitz app + webhook in Qonto.
+  - peptideplein247 / qonto (NEEDS_REAUTH): same as above → MANUAL on merchant side (asked in notice e-mail).
+  - owner / qonto (EXPIRED), peptideplein247 / qonto (EXPIRED): config only, wiped; nothing at bank.
+  - Coolify log redaction hid the per-connection "token" field.
+- 17:57 UTC step 3 delete-keys (DELETE-KEYS-12): organization_webhook 3 deleted; apikey deleted (count redacted by Coolify; post-check apiKeys = 0).
+- 17:57 UTC step 4 purge (PURGE-27), one transaction — deleted rows: organization 27, user 27, member 27, account 27, session 29, organization_bank_account 24, bank_account 2, payment_session 7, customer 1, apikey (redacted, 0 left), organization_webhook 0, invoice 0, transaction 0, invitation 0, verification 0.
+  keptUnchanged = true (kept orgs jayokunle/test/test4325: payment_session 27 [PAID 8], transaction 8, bank_account 1).
+- 17:58 UTC post-check plan: bank secrets 0, apiKeys 0, webhooks 0, nothing left to purge.
