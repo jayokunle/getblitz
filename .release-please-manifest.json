@@ -1,5 +1,5 @@
 {
-  "apps/web": "0.0.16",
+  "apps/web": "0.0.17",
   "packages/shared-types": "0.0.12",
   "packages/getblitz-client": "0.0.10"
 }

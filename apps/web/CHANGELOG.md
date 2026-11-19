@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.17](https://github.com/jayokunle/getblitz/compare/web-v0.0.16...web-v0.0.17) (2026-11-19)
+
+
+### Features
+
+* close sign-ups and show shutdown notice for hosted service ([#67](https://github.com/jayokunle/getblitz/issues/67)) ([16e8b70](https://github.com/jayokunle/getblitz/commit/16e8b7026fad49f7f29b06cc53b7c78b85093c92))
+* **shutdown:** Stage 4 tooling (dry-run by default) ([#70](https://github.com/jayokunle/getblitz/issues/70)) ([e13f233](https://github.com/jayokunle/getblitz/commit/e13f233ef3f5866c19c8b9db3cc9bc1733d4dfce))
+* **web:** internal mailer for the hosted-service shutdown notice ([#69](https://github.com/jayokunle/getblitz/issues/69)) ([ef03756](https://github.com/jayokunle/getblitz/commit/ef03756f5b11be627d16d8f6b00bd74e7f3a92a8))
+
 ## [0.0.16](https://github.com/jayokunle/getblitz/compare/web-v0.0.15...web-v0.0.16) (2026-10-31)
 
 
