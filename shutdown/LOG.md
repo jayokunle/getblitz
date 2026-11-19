@@ -104,3 +104,12 @@ Planned SHUTDOWN_AT: Thu 2026-11-19 12:00 CET (must be ≥48h after the notice e
 - 18:04 UTC PR jayokunle/getblitz#71 merged (d1c1794): docs.getblitz.io now serves the notice via GitHub Pages (HTTP 200; Pages cannot send 410).
 - 18:04 UTC the merge triggered a Coolify webhook deploy of the STOPPED getblitz-io-apps (no path filter) → cancelled within ~1 min (6zcjqz55loaozz4ze1irb9v0); app verified still exited. Auto-deploy now DISABLED on getblitz-io-apps, Website and getblitz-shutdown-notice-website so future pushes to main cannot restart them.
 - Stage 4 COMPLETE ~18:05 UTC. All four domains show the notice.
+
+## Early deletion (operator request, 2026-11-19 ~18:50 UTC — instead of the 14-day grace period)
+
+- Operator: "delete the resources and only leave the shutdown apps". DB deletion confirmed after discussing retention; operator made a DBeaver pg_dump at 19:52 CET (post-purge, kept data only; plain dump on operator's machine — should be stored/encrypted safely).
+- Deleted (volumes + configurations; shared `coolify` network NOT touched): app `getblitz-io-apps` (hy5ifixzasfpycsiggyptajs), app `Website` (rjdcllp6unds5vcaz66ci9v9), Redis `getblitz-redis-apps` (bvdwvlttxc0rvt3eartno5ie).
+- Final Coolify backup before DB deletion: `production` 53,177 bytes at 18:55 UTC (post-purge, kept data only); pre-purge backup 90,141 bytes at 17:24 UTC. S3 copies were not deleted by the agent.
+- Deleted DB `getblitz-postgres-apps` (pjieqqosqag6oavjx70ztuux).
+- Remaining in Coolify project GetBlitz: `getblitz-shutdown-notice-app` (app.getblitz.io) and `getblitz-shutdown-notice-website` (getblitz.io, www). Other projects unchanged (Semantik 3 apps/1 DB, Sprachflow 3 apps/1 DB, Playground 1 app).
+- Verified after deletion: getblitz.io, www, app. → 410 notice; /api/* → 410 JSON; docs. → notice (Pages, 200).

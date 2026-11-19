@@ -1,4 +1,9 @@
-# GetBlitz — deletion checklist (on or after 2026-12-03)
+# GetBlitz — deletion checklist
+
+> **Status 2026-11-19:** sections 1–2 were done early at the operator's request
+> (app, Website, Redis and Postgres deleted; see LOG.md). Remaining: sections 3–4
+> and deciding how long to keep the S3 backup copies of the `production` DB.
+
 
 Everything below is in the Coolify project **GetBlitz** only. Do **not** touch the
 servers (`coolify-apps`, `localhost`, `coolify-builder`), their proxies, the team
